@@ -1,18 +1,20 @@
 import { Suspense } from 'react'
 import EventList from './events/components/eventList'
 import EventListSkeleton from './events/components/eventListSkeleton'
-import EventTypeList from "@/app/header/eventTypeList";
+import Header from "@/app/header/header";
 
 export default function EventsPage() {
+    const city = "LONDON";
+    const type = "music";
     return (
-        <div>
-            <EventTypeList />
-            <main>
-            {/* If there's any dynamic content inside this boundary, it will be streamed in */}
-                <Suspense fallback={<EventListSkeleton />}>
-                    <EventList />
-                </Suspense>
-            </main>
-        </div>
+        <main>
+            <Header />
+            <Suspense fallback={<EventListSkeleton />}>
+                <EventList
+                    city={city}
+                    type={type}
+                />
+            </Suspense>
+        </main>
     )
 }

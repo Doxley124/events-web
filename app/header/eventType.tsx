@@ -1,8 +1,8 @@
 export default function EventType({
-  name,
-  isSelected,
-  onEventTypeClick
-}:{ 
+                                      name,
+                                      isSelected,
+                                      onEventTypeClick
+}:{
     name: string,
     isSelected: boolean,
     onEventTypeClick: () => void
@@ -10,7 +10,6 @@ export default function EventType({
     function handleClick() {
         onEventTypeClick();
     }
-
     return (
         <div>
             <button onClick={handleClick}>

@@ -1,12 +1,12 @@
 import Event from "@/app/events/components/event";
 import { Key } from "react";
 
-export default async function EventList() {
-    const data = await fetch('http://localhost:8080/events')
+export default async function EventList({city, type}:{city: string, type: string}) {
+    const data = await fetch(`http://localhost:8080/events/filter?city=${city}&mainType=${type}`)
     const events = await data.json()
     return (
         <section>
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] justify-center gap-4 m-4">
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] justify-center gap-4 m-4 relative z-0">
                 {events.map((event: {
                     id: Key | null | undefined;
                     eventName: string;
