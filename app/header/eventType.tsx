@@ -1,6 +1,3 @@
-import iconWhite from "@/src/assets/events-icon-white.png";
-import Image from "next/image";
-
 export default function EventType({
                                       name,
                                       isSelected,

@@ -1,8 +1,6 @@
 'use client'
 import { useState } from 'react';
 import EventType from "@/app/header/eventType";
-import iconWhite from "@/src/assets/events-icon-white.png";
-import Image from "next/image";
 
 export default function EventTypeList({updateType}:{updateType: (type: string) => void}){
     const [selectedIndex, setSelectedIndex] = useState(0);
@@ -29,13 +27,6 @@ export default function EventTypeList({updateType}:{updateType: (type: string) =
     }
     return (
         <div className='flex gap-4 items-center place-content-start p-4'>
-            <Image
-                src={iconWhite}
-                className='size-10 md:size-20 mr-2'
-                width={219}
-                height={225}
-                alt="Site icon"
-            />
             <EventType
                 name={"Music"}
                 isSelected={selectedIndex === 1}
