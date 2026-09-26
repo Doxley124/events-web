@@ -1,10 +1,15 @@
 'use client'
 import { useState } from 'react';
 import EventType from "@/app/header/eventType";
+import iconWhite from "@/src/assets/events-icon-white.png";
+import Image from "next/image";
 
 export default function EventTypeList({updateType}:{updateType: (type: string) => void}){
     const [selectedIndex, setSelectedIndex] = useState(0);
     function onClicked(index: number) {
+        if (selectedIndex == index){
+            index = 0;
+        }
         setSelectedIndex(index)
         let type = ""
         switch (index) {
@@ -24,21 +29,31 @@ export default function EventTypeList({updateType}:{updateType: (type: string) =
     }
     return (
         <div className='flex gap-4 items-center place-content-start p-4'>
+            <Image
+                src={iconWhite}
+                className='size-10 md:size-20 mr-2'
+                width={219}
+                height={225}
+                alt="Site icon"
+            />
             <EventType
                 name={"Music"}
                 isSelected={selectedIndex === 1}
-                onEventTypeClick={() => onClicked(1)}
-            />
+                onEventTypeClick={() => onClicked(1)}>
+                <div>Music</div>
+            </EventType>
             <EventType
                 name={"Art"}
                 isSelected={selectedIndex === 2}
-                onEventTypeClick={() => onClicked(2)}
-            />
+                onEventTypeClick={() => onClicked(2)}>
+                <div>Art</div>
+            </EventType>
             <EventType
                 name={"Community"}
                 isSelected={selectedIndex === 3}
-                onEventTypeClick={() => onClicked(3)}
-            />
+                onEventTypeClick={() => onClicked(3)}>
+                <div>Community</div>
+            </EventType>
         </div>
     )
 }

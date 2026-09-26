@@ -1,6 +1,7 @@
 import {Key} from "react";
 import Image from "next/image";
 import poster from '@/src/assets/event-poster.png';
+import EventTypeSmall from "@/app/events/eventTypeSmall";
 
 export default function Event({
     id,
@@ -20,8 +21,8 @@ export default function Event({
                 />
                 <div className="flex flex-col p-2 grow">
                     <div className="flex flex-row items-start justify-between border-b-4">
-                        <div className="text-2xl truncate">{name}</div>
-                        <div className="text-sm">{mainType}</div>
+                        <div className="text-base md:text-2xl truncate">{name}</div>
+                        <EventTypeSmall type={mainType} />
                     </div>
                     <div className="text-base grow mt-2 truncate text-wrap">{description}</div>
                     <div className="text-sm text-end">{date.slice(0,10)}</div>

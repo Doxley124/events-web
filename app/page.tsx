@@ -1,7 +1,7 @@
 'use client'
 import {Suspense, useState} from 'react'
-import EventList from './events/components/eventList'
-import EventListSkeleton from './events/components/eventListSkeleton'
+import EventList from './events/eventList'
+import EventListSkeleton from './events/eventListSkeleton'
 import Header from "@/app/header/header";
 
 export default function EventsPage() {
@@ -11,7 +11,12 @@ export default function EventsPage() {
         setType(newType)
     }
     function updateCity(newCity: string) {
-        setCity(newCity)
+        if (newCity === "ALL LOCATIONS") {
+            setCity("")
+        }
+        else {
+            setCity(newCity)
+        }
     }
     return (
         <main>

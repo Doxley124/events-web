@@ -1,4 +1,4 @@
-import Event from "@/app/events/components/event";
+import Event from "@/app/events/event";
 import {Key} from "react";
 import useSWR from 'swr'
 
@@ -18,7 +18,7 @@ export default function EventList({city, type}:{city: string, type: string}) {
     if (isLoading) return <div></div>
     return (
         <section>
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] justify-center gap-4 m-4 relative z-0">
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(600px,1fr))] justify-center gap-4 m-4 relative z-0">
                 {data.map((event: {
                     id: Key | null | undefined;
                     eventName: string;

@@ -5,7 +5,7 @@ import clsx from 'clsx'
 import { SetStateAction, useState} from 'react'
 
 const cities = [
-    {id: 0, name: ''},
+    {id: 0, name: 'ALL LOCATIONS'},
     {id: 1, name: 'LONDON'},
     {id: 2, name: 'MANCHESTER'},
     {id: 3, name: 'BRISTOL'},
@@ -27,7 +27,7 @@ export default function LocationSelector({updateCity}: {updateCity: (city: strin
         updateCity(value ? value.name : "");
     }
     return (
-        <div className="w-52 relative z-1">
+        <div className="max-w-52 relative z-1">
             <Combobox value={selected} onChange={(value) => handleChange(value)} onClose={() => setQuery('')}>
                 <div className="relative">
                     <ComboboxInput
