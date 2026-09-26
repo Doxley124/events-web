@@ -1,14 +1,24 @@
-import { Suspense } from 'react'
+'use client'
+import {Suspense, useState} from 'react'
 import EventList from './events/components/eventList'
 import EventListSkeleton from './events/components/eventListSkeleton'
 import Header from "@/app/header/header";
 
 export default function EventsPage() {
-    const city = "LONDON";
-    const type = "music";
+    const [type, setType] = useState("");
+    const [city, setCity] = useState("");
+    function updateType(newType: string) {
+        setType(newType)
+    }
+    function updateCity(newCity: string) {
+        setCity(newCity)
+    }
     return (
         <main>
-            <Header />
+            <Header
+                updateType={(newType: string) => updateType(newType)}
+                updateCity={(newCity: string) => updateCity(newCity)}
+            />
             <Suspense fallback={<EventListSkeleton />}>
                 <EventList
                     city={city}

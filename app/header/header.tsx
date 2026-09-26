@@ -4,8 +4,8 @@ import iconBlack from '@/src/assets/events-icon-black.png';
 import iconWhite from '@/src/assets/events-icon-white.png';
 import LocationSelector from "@/app/header/locationSelector";
 
-
-export default function Header(){
+export default function Header({updateType, updateCity}:{ updateType: (type: string) => void,
+    updateCity: (city: string) => void}){
     return (
         <div className='flex gap-4 items-center place-content-start p-4'>
             <Image
@@ -14,10 +14,9 @@ export default function Header(){
                 width={219}
                 height={225}
                 alt="Site icon"
-                quality={100}
             />
-            <EventTypeList/>
-            <LocationSelector />
+            <EventTypeList updateType={(type: string) => updateType(type)}/>
+            <LocationSelector  updateCity={(city: string) => updateCity(city)}/>
         </div>
     )
 }

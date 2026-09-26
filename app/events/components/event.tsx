@@ -17,14 +17,13 @@ export default function Event({
                        height={200}
                        width={150}
                        alt="Event poster"
-                       quality={100}
                 />
                 <div className="flex flex-col p-2 grow">
                     <div className="flex flex-row items-start justify-between border-b-4">
-                        <div className="text-2xl">{name}</div>
+                        <div className="text-2xl truncate">{name}</div>
                         <div className="text-sm">{mainType}</div>
                     </div>
-                    <div className="text-base grow mt-2 truncate">{description}</div>
+                    <div className="text-base grow mt-2 truncate text-wrap">{description}</div>
                     <div className="text-sm text-end">{date.slice(0,10)}</div>
                 </div>
             </div>

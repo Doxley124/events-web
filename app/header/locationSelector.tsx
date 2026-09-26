@@ -2,17 +2,18 @@
 import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
-import { useState } from 'react'
+import { SetStateAction, useState} from 'react'
 
 const cities = [
-    { id: 1, name: 'LONDON' },
-    { id: 2, name: 'MANCHESTER' },
-    { id: 3, name: 'BRISTOL' },
+    {id: 0, name: ''},
+    {id: 1, name: 'LONDON'},
+    {id: 2, name: 'MANCHESTER'},
+    {id: 3, name: 'BRISTOL'},
 ]
 
-export default function LocationSelector() {
+export default function LocationSelector({updateCity}: {updateCity: (city: string) => void}) {
     const [query, setQuery] = useState('')
-    const [selected, setSelected] = useState(cities[1])
+    const [selected, setSelected] = useState(cities[0])
 
     const filteredPeople =
         query === ''
@@ -21,9 +22,13 @@ export default function LocationSelector() {
                 return person.name.toLowerCase().includes(query.toLowerCase())
             })
 
+    function handleChange(value) {
+        setSelected(value);
+        updateCity(value ? value.name : "");
+    }
     return (
         <div className="w-52 relative z-1">
-            <Combobox value={selected} onChange={(value) => setSelected(value)} onClose={() => setQuery('')}>
+            <Combobox value={selected} onChange={(value) => handleChange(value)} onClose={() => setQuery('')}>
                 <div className="relative">
                     <ComboboxInput
                         className={clsx(

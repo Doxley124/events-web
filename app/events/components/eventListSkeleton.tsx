@@ -1,6 +1,7 @@
-export default async function EventListSkeleton() {
+export default function EventListSkeleton() {
     return (
         <section>
+            Loading...
         </section>
     );
 }
