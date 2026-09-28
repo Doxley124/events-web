@@ -1,3 +1,6 @@
+<img width="1920" height="851" alt="Screenshot (2)" src="https://github.com/user-attachments/assets/70ecda99-e76a-4767-8630-9b0c3f6e86b5" />
+
+
 This is a [Next.js](https://nextjs.org) project
 
 ## Getting Started
