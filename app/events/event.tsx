@@ -1,6 +1,5 @@
 import {Key} from "react";
 import Image from "next/image";
-import poster from '@/src/assets/event-poster.png';
 import EventTypeSmall from "@/app/events/eventTypeSmall";
 
 export default function Event({
@@ -8,13 +7,15 @@ export default function Event({
     name,
     description,
     date,
-    mainType
-}:{id: Key | null | undefined, name: string, description: string, date: string, mainType: string})  {
+    mainType,
+    imageURL
+}:{id: Key | null | undefined, name: string, description: string, date: string, mainType: string,
+    imageURL: string})  {
     return (
         <div className="flex flex-col border-2 rounded-lg">
             <div className="flex flex-row">
                 <Image className="m-2"
-                       src={poster}
+                       src={"/" + imageURL}
                        height={200}
                        width={150}
                        alt="Event poster"

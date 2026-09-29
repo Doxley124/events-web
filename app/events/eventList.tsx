@@ -24,7 +24,8 @@ export default function EventList({city, type}:{city: string, type: string}) {
                     eventName: string;
                     description: string;
                     date: string;
-                    mainType: string;}) => (
+                    mainType: string;
+                    imageURL: string}) => (
                     <Event
                         key={event.id}
                         name={event.eventName}
@@ -32,6 +33,7 @@ export default function EventList({city, type}:{city: string, type: string}) {
                         date={event.date}
                         id={event.id}
                         mainType={event.mainType}
+                        imageURL={event.imageURL}
                     />
                 ))}
             </div>
